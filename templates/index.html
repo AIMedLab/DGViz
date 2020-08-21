@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>DGViz</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="static/stylesheets/style.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <!--  libs -->
+    <script src="static/lib/jquery-3.3.1.min.js"></script>
+    <script src="static/lib/d3.min.js"></script>
+    <script src="static/lib/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/underscore-min.js"></script>
+    <script src="static/lib/echarts.min.js"></script>
+    <script src="static/lib/dark.js"></script>
+    <script src="static/lib/d3-scale-chromatic.v0.3.min.js"></script>
+    <script src="static/lib/d3-selection-multi.v1.js"></script>
+    <script src="static/lib/sigmajs/sigma.min.js"></script>
+    <script src="static/lib/sigmajs/plugins/sigma.layout.forceAtlas2.min.js"></script>
+    <script src="static/lib/sigmajs/plugins/sigma.layout.noverlap.min.js"></script>
+    <script src="static/lib/sigmajs/plugins/settings.js"></script>
+    <script src="static/lib/sigmajs/plugins/sigma.canvas.edges.labels.curve.js"></script>
+    <script src="static/lib/sigmajs/plugins/sigma.canvas.edges.labels.curvedArrow.js"></script>
+    <script src="static/lib/sigmajs/plugins/sigma.canvas.edges.labels.def.js"></script>
+    <script src="static/lib/d3-tip.js"></script>
+
+    <div id="instruction-box">
+        This page is intended as a demo for readers to understand and investigate our visualization system. <b>The content on this page is for academic use only.</b><br>
+        <b>Note:</b> The medical data we presented in the paper is confidential. In the current demo, we synthesized medial history data for three patients. They are circled in black in the distribution overview. 
+    </div>
+
+    <div class="main-box">
+        {#    <div class="header-box">#}
+        {#        <label id="system-title">DGVis</label>#}
+        {#        <label id="source-label">data source</label>#}
+        {#        <div class="btn-group" id="source-select">#}
+        {#            <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle"#}
+        {#                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+        {#                Select data source#}
+        {#            </button>&nbsp;&nbsp;#}
+        {#            <div class="dropdown-menu">#}
+        {#                <a class="dropdown-item" href="#">Mimic 3</a>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#    </div>#}
+
+
+        <div class="data-box">
+
+            <div class="overview-box">
+                <div class="stripe overview-bar">
+                    <span>&nbsp;&nbsp;&nbsp;Distribution View</span>
+                    <!-- <button type="button" class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip"
+                        data-html="true" title="will be displayed.">?</button> -->
+                </div>
+                <div class="overview-vis">
+
+                </div>
+                <div class="demo-vis">
+                    <div id="race-chart">
+
+                    </div>
+                    <div id="gender-chart">
+
+                    </div>
+                    <div id="age-chart">
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-box">
+                <div class="stripe detail-bar">
+                    <span>&nbsp;&nbsp;&nbsp;Knowledge Graph View</span>
+                    <select id="kg-switch" class="vis-selection">
+                        <option value="1">whole network</option>
+                        <option value="2">code network</option>
+                    </select>
+                </div>
+                <div id="kg-vis">
+
+                </div>
+                <div id="sel-kg-vis">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="stripe model-bar">
+            <span>&nbsp;&nbsp;&nbsp;Patient History</span>
+
+            <button type="button" class="viewswitch-btn" id="visit-view-btn">Visit View</button>
+            <button type="button" class="viewswitch-btn" id="temp-view-btn">Temporal View</button>
+            <input type="checkbox" class="form-check-input comp-check" id="kg-comp">
+            <label class="form-check-label comp-check-text" for="kg-comp">Compare with NK</label>
+            <button type="button" class="viewswitch-btn" id="reset-btn">Reset</button>
+            <button type="button" class="viewswitch-btn" id="remove-btn">Remove Code</button>
+            <button type="button" class="viewswitch-btn" id="add-btn">Add Code</button>
+        </div>
+
+        <div id="model-box">
+            <div id="pred-contrl-panel">
+                <span class="contrl-span">Removed Codes:</span>
+                <hr>
+                <p id="removed-codes"></p>
+                <hr>
+                Added Drugs:
+                <hr>
+                <p id="added-drugs"></p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script type="text/javascript" src="static/javascripts/vis.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_db.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_data.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_utils.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_table.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_interaction.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_plot_overview.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_render_demo.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_render_history.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_global.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_model.js"></script>
+    <script type="text/javascript" src="static/javascripts/vis_render_kg.js"></script>
+
+
+</body>
+
+</html>
